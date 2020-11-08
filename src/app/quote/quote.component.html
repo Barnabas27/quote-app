@@ -4,8 +4,12 @@
     </header>
     <div class="row">
         <div class="col-md-4">
-            <div class="card">
-
+            <div class="card" *ngFor="let quotes of quotes">
+                <p>
+                    {{quotes.author}} <br>
+                    {{quotes.quote}} <br>
+                    {{quotes.submitDate}} <br>
+                </p>
             </div>
         </div>
     </div>
