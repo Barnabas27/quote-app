@@ -1,25 +1,34 @@
 <div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="text-center">WELCOME TO YOUR QUOTES' WORLD</h1>
+        <p class="text-center lead">Bar Quotes is dedicated to bringing inspirational quotes to light, using the power of quotes and the internet to multiply acts of kindness, beauty, and generosity.</p>
+    </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-5">
             <div *ngFor='let quote of quotes;let i = index'>
 
-                <div class="card" style="width: 18rem;">
+                <div class="card">
 
                     <div class="card-body">
-                        <h5 class="card-title">{{quote.author}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{quote.date}}</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <h5 class="card-title">Author ; {{quote.author}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{quote.date|dateCount}} days ago</h6>
+                        <p class="card-text">Quote ; {{quote.quote}}</p>
+                        <p>Submitted by ; {{quote.user}}</p>
+                        <button class="btn btn-outline-success" (click) = 'upvoting(i)'><i class="fa fa-thumbs-up"></i>{{quote.like}}</button>
+                        <button class="btn btn-outline-primary"  (click) = 'downvoting(i)'><i class="fa fa-thumbs-down"></i>{{quote.unlike}}</button>
+                        <button class="btn btn-outline-danger" (click) = 'deleteQuote($event,i)'><i class="fa fa-trash"></i></button>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <app-quote-form></app-quote-form>
+        <div class="col-md-5">
+            <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
         </div>
+        <div class="col-md-1"></div>
+
     </div>
    
 </div>

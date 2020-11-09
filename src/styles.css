@@ -3,3 +3,13 @@
 .card{
     margin-bottom: 5%;
 }
+button{
+    margin-right: 5%;
+}
+body{
+    background-image: url('src/assets/img0.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
